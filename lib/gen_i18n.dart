@@ -181,7 +181,7 @@ void _handleGenerateI18nDart(
         {
           if (hasArgsInMessage(message.message!)) {
             getterBuilder.writeln(generateGetterMessageWithArgsFunction(jsonKey,
-                message.message!, extraArgsFromMessage(message.message!)));
+                message.message!.replaceAll(r'\\', r'\'), extraArgsFromMessage(message.message!)));
           } else {
             getterBuilder.writeln(
                 generateGetterSimpleMessageFunction(jsonKey, message.message!));
